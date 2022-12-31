@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# This might be a slightly different from William S. Vincent's convention? Or Two Scoops?
+# Revisit later
+from movie import views as movieViews
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', movieViews.home),
+    path('about/', movieViews.about)
 ]
