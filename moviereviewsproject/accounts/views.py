@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.shortcuts import redirect
 #from django.contrib.auth.forms import UserCreationForm
+
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+
 from .forms import CustomUserCreationForm
 
 def signup(request: HttpResponse):
@@ -32,6 +35,7 @@ def signup(request: HttpResponse):
                 'error': 'Passwords do not match'
             })
 
+@login_required
 def logout_user(request: HttpResponse):
     logout(request)
     return redirect('home')
