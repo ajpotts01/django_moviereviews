@@ -27,7 +27,8 @@ urlpatterns = [
     path('', movieViews.home, name='home'),
     path('about/', movieViews.about),
     path('signup/', movieViews.signup, name='signup'),
-    path('news/', include('news.urls'))
+    path('news/', include('news.urls')),
+    path('movie/', include('movie.urls'))
 ]
 
 # .append would be the preferred approach here, but it doesn't work for some reason?
