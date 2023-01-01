@@ -25,11 +25,11 @@ def home(request: HttpRequest):
 def about(request: HttpRequest):
     return HttpResponse('<h1>Welcome to the About page</h1>')
 
-def signup(request: HttpRequest):
+def mailing_list(request: HttpRequest):
     EMAIL_COMPONENT = 'email'
 
     email = request.GET.get(EMAIL_COMPONENT)
-    return render(request, 'signup.html', {
+    return render(request, 'mailing-list.html', {
         'email': email
     })
 
