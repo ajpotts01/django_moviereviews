@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 # This might be a slightly different from William S. Vincent's convention? Or Two Scoops?
 # Revisit later
@@ -26,7 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', movieViews.home, name='home'),
     path('about/', movieViews.about),
-    path('signup/', movieViews.signup, name='signup')
+    path('signup/', movieViews.signup, name='signup'),
+    path('news/', include('news.urls'))
 ]
 
 # .append would be the preferred approach here, but it doesn't work for some reason?

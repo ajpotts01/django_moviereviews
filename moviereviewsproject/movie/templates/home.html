@@ -17,6 +17,22 @@
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
             You searched for {{ search_term }}
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for movie in movies %}
+                <div class="col" v-for="movie in movies">
+                    <div class="card">
+                        <img src="{{ movie.image.url }}" alt="{{ movie.title }} poster" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">{{ movie.title }}</h5>
+                            <p class="card-text">{{ movie.description }}</p>
+                            {% if movie.url %}
+                            <a href="{{ movie.url }}" class="btn btn-primary">Movie Link (imdb)</a>
+                            {% endif %}                            
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}                
+            </div>
             <br>
             <br>
             <h2>Join our mailing list:</h2>
